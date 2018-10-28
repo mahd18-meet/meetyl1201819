@@ -1,13 +1,13 @@
 import turtle
-
+'''
 #q1
 angle=150
-length=150
+length=200
 turtle.pensize(10)
 for i in range(5):
 	turtle.forward(length)
 	turtle.right(angle)
-
+'''
 '''
 #q2
 
@@ -27,11 +27,16 @@ turtle.end_fill()
 turtle.mainloop()
 
 '''
-short_forward=20
-backward=10
+forward=200
+forward2=100
 
-for d in range(100):
+for r in range(100):
+	turtle.forward(forward)
+	turtle.right(30)
+	turtle.forward(forward2)
 	turtle.penup()
 	turtle.home()
 	turtle.pendown()
-	turtle.forward()
+	turtle.right()
+
+turtle.mainloop()
