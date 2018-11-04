@@ -28,15 +28,18 @@ turtle.mainloop()
 
 '''
 forward=200
-forward2=100
+forward2=50
+turtle.speed(0)
 
-for r in range(100):
+for r in range(10000000):
+	print (r)
 	turtle.forward(forward)
 	turtle.right(30)
 	turtle.forward(forward2)
 	turtle.penup()
 	turtle.home()
+	turtle.right(r)
 	turtle.pendown()
-	turtle.right()
+
 
 turtle.mainloop()
