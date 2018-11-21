@@ -1,4 +1,4 @@
-'''
+
 class Animal(object):
 	def __init__(self, sound, name, age, favorite_color):
 		self.sound= sound
@@ -17,8 +17,8 @@ cat = Animal("meow","kitty","3","red")
 cat.eat("meat")
 cat.description()
 cat.make_sound(2)
-'''
-'''
+
+
 class Person(object):
 	def __init__(self, name, age, city, gender):
 		self.name = name
@@ -33,7 +33,9 @@ class Person(object):
 Matt=Person("Matt", "20", "Jerusalem", "Male")
 Matt.fav_breakfast("cereal")
 Matt.fav_sport("football")
-'''
+
+
+
 class Song(object):
 	def __init__(self,lyrics):
 		self.lyrics= lyrics

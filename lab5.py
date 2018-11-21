@@ -1,12 +1,14 @@
-'''
-import tkinter as tk
-from tkinter import simpledialog
-#then when ever you want to ask the user for input use this code
+
+import Tkinter as tk
+from Tkinter import *
+
+
 greeting = simpledialog.askstring("Input","Hello, possible pirate!")
 if greeting in ["Arrr!"]:
 	print ("Go away, pirate.")
 else:
 	print ("Greetings, hater of pirates!")
+	'''
 
 #a time traveler has suddenly appeared in your classroom!
 #create a variable representing the traveler's year of origin (e.g., year = 2000)
@@ -23,6 +25,8 @@ elif year>1900 and year <2020:
 else:
 	print("far out, that's the future!!")
 '''
+
+
 '''
 class cat():
 	def __init__(self, name, age):
@@ -39,6 +43,7 @@ my_cat.birthday(8)
 #what i want: my cat to celebrate its 8th birthday (and all the birthdays
 #that come before that)
 '''
+'''
 class Cake():
 	def __init__(self,flavor):
 		self.flavor=flavor
@@ -46,3 +51,4 @@ class Cake():
 		print("Yummy!!! Eating a",self.flavor," cake! :)")
 cake=Cake("chocolate")
 print(cake.eat())
+'''

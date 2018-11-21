@@ -1,18 +1,21 @@
 import turtle
-'''
+
 print ("Noor")
 print ("Noor"*3)
 print ("Noor"*100)
 number1=4
+print(number1)
 number2=number1/2
+print(number2)
 numbers=[1,2,3]
 sums=0
 for number in numbers:
+	print(number)
 	print(number*2)
 	sums=sums+number
 print(sums)
-'''
-'''
+
+
 turtle.begin_fill()
 turtle.pendown()
 turtle.goto(0,50)
@@ -21,16 +24,7 @@ turtle.goto(50,0)
 turtle.goto(0,0)
 turtle.end_fill()
 turtle.penup()
-'''
-'''
-def circle():
-	turtle.penup()
-	turtle.goto(100,100)
-	turtle.pendown()
-	turtle.pensize(15)
-	turtle.circle(100)
-	return circle()
-'''
+
 turtle.pensize(10)
 
 turtle.penup()
