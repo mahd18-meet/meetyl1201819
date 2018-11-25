@@ -1,6 +1,6 @@
 
-import Tkinter as tk
-from Tkinter import *
+import tkinter as tk
+from tkinter import *
 
 
 greeting = simpledialog.askstring("Input","Hello, possible pirate!")
