@@ -73,6 +73,6 @@ class Polygon(Turtle):
 k=Polygon(6,100,60)
 
 hexagon=Polygon(5,50,72)
-
+turtle.penup()
 
 turtle.mainloop()
