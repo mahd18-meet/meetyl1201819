@@ -14,6 +14,7 @@ class Ball(Turtle):
 		self.shapesize(r/10)
 		self.color(color)
 		self.goto(x, y)
+		
 	def move(self,screen_width,screen_height):
 		current_x=self.xcor()
 		new_x=current_x+self.dx
