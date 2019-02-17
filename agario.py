@@ -41,8 +41,8 @@ gameover.hideturtle()
 gameover.goto(50,100)
 RUNNING = True
 SLEEP = 0.0077
-screen_width = turtle.getcanvas().winfo_width()/2
-screen_height =  turtle.getcanvas().winfo_height()/2
+screen_width = turtle.getcanvas().winfo_width()//2
+screen_height =  turtle.getcanvas().winfo_height()//2
 MY_BALL=Ball(0,0,3,5,30,"red")
 MY_BALL.shape("brain.gif")
 
@@ -75,15 +75,14 @@ def start_educational_game():
 		while dy==0:
 		 	dy=random.randint(minimum_ball_dy,maximum_ball_dy)
 		new_ball=Ball(x,y,dx,dy,r,color)
-		while True:
-			if new_ball.r == 30 or new_ball.r > 30 and new_ball.r < 50:
-				new_ball.shape("brain.gif")
-			if new_ball.r == 50 or new_ball.r > 50 and new_ball.r < 70:
-				new_ball.shape("brain(1).gif")
-			if new_ball.r == 70 or new_ball.r > 70 and new_ball.r < 90:
-				new_ball.shape("brain(2).gif")
-			if new_ball.r == 90:
-				new_ball.shape("brain(3).gif")
+		if (new_ball.r == 30) or (new_ball.r > 30 and new_ball.r < 50) or (new_ball.r < 30):
+			new_ball.shape("brain.gif")
+		if (new_ball.r == 50) or (new_ball.r > 50 and new_ball.r < 70):
+			new_ball.shape("brain(1).gif")
+		if (new_ball.r == 70) or (new_ball.r > 70 and new_ball.r < 90):
+			new_ball.shape("brain(2).gif")
+		if (new_ball.r == 90):
+			new_ball.shape("brain(3).gif")
 		balls.append(new_ball)
 		
 	for i in range(number_of_food):
@@ -264,8 +263,8 @@ def Educational_function():
 	RUNNING = True
 	SLEEP = 0.0077
 	while RUNNING:
-		screen_width = turtle.getcanvas().winfo_width()/2
-		screen_height =  turtle.getcanvas().winfo_height()/2
+		screen_width = turtle.getcanvas().winfo_width()//2
+		screen_height =  turtle.getcanvas().winfo_height()//2
 		check_all_balls()
 		move_all_balls()
 		eat_subjects()
@@ -284,8 +283,8 @@ def Casual_function():
 	RUNNING = True
 	SLEEP = 0.0077
 	while RUNNING:
-		screen_width = turtle.getcanvas().winfo_width()/2
-		screen_height =  turtle.getcanvas().winfo_height()/2
+		screen_width = turtle.getcanvas().winfo_width()//2
+		screen_height =  turtle.getcanvas().winfo_height()//2
 		check_all_balls()
 		move_all_balls()
 		eat_jerry()
@@ -311,6 +310,4 @@ Casual = tk.Button(panel1, text='Casual', height=3, width=10, command=Casual_fun
 Casual.pack(side='bottom')
 panel1.image=image1
 root.mainloop()	
-
-
 turtle.mainloop()

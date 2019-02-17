@@ -1,7 +1,7 @@
 
 import tkinter as tk
 from tkinter import simpledialog
-'''
+
 
 greeting = simpledialog.askstring("Input","Hello, possible pirate!What's the password?", parent=tk.Tk().withdraw())
 
@@ -18,6 +18,8 @@ elif year>1900 and year <2020:
 	print("that's totally the present!")
 else:
 	print("far out, that's the future!!")
+
+
 '''
 classy Person:
   def __initalize__(self, first_name, last_name):
@@ -31,3 +33,4 @@ you = Person("Ethan", "Reed")
 
 me.speak()
 you.self.speak
+'''
