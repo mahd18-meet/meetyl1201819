@@ -6,7 +6,7 @@ import math
 import tkinter as tk
 from tkinter import *
 
-turtle.register_shape("food.gif")
+
 turtle.register_shape("black cat.gif")
 turtle.register_shape("dog.gif")
 turtle.register_shape("tom.gif")
@@ -237,6 +237,7 @@ def check_all_balls():
 
 def move_all_balls():
 	for o in balls:
+		print (o)
 		o.move(screen_width, screen_height)
 			
 def check_myball_collision(MY_BALL):
