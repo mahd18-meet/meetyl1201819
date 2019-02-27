@@ -5,9 +5,11 @@ import random
 import math
 from functions import *
 from tkinter import *
+from characters import *
 
+turtle.tracer(100,1)
 
-abed = Player (30,30,20)
+abed = Player (20)
 abed.shape("circle")
 abed.shapesize(1)
 abed.penup()
@@ -20,27 +22,32 @@ RIGHT = 3
 direction = UP
 foods=[burger,pizza,sushi]
 FOODCOLLISION= False
-
+table=Food(200,280,40)
+table2=Food(200,70,40)
+table3=Food(200,-150,40)
+table4=Food(200,-360,40)
+tables = [table,table2,table3,table4]
+number = 0
 
 def up():
 	global direction
 	direction=UP 
-	abed.goto(abed.xcor(), abed.ycor() + 10)
+	abed.goto(abed.xcor(), abed.ycor() + 20)
 
 def down():
     global direction
     direction = DOWN
-    abed.goto(abed.xcor(), abed.ycor() - 10)
+    abed.goto(abed.xcor(), abed.ycor() - 20)
 
 def left():
     global direction
     direction = LEFT
-    abed.goto(abed.xcor() - 10, abed.ycor())
+    abed.goto(abed.xcor() - 20, abed.ycor())
 
 def right():
     global direction
     direction = RIGHT
-    abed.goto(abed.xcor() + 10, abed.ycor())
+    abed.goto(abed.xcor() + 20, abed.ycor())
 
 turtle.onkeypress(up, "Up")
 turtle.onkeypress(down, "Down")
@@ -61,22 +68,41 @@ def collide(ball_a,ball_b):
 def check_food_collision():
 	for f in foods:
 		if collide(abed,f) == True:
-			while FOODCOLLISION == False and collide(f,table)==False:
-				f.goto(abed.xcor()+5,abed.ycor())
-				f.showturtle()
+			f.showturtle()
+			f.goto(abed.xcor(),abed.ycor())
+				
 	return True
 
 def slide_food():
 	for f in foods:
-		if collide(f,table) == True:
-			FOODCOLLISION = True
-			f.goto(table.xcor(),table.ycor())
-			f.bk(200)
+		for t in tables:
+			if collide(f,t) == True:
+				f.goto(t.xcor(),t.ycor())
+				f.bk(200)
+
+def check_player_food_collision():
+	players = getplayers()
+	for f in foods:
+		for p in players:
+			print(collide(f,p))
+			if collide(f,p) == True:
+				print("here")
+				f.hideturtle()
+				p.hideturtle()
+	return True
 
 turtle.listen()
+frame = 0
+
 while True:	
-	slide_food()
 	check_food_collision()
+	frame+=1
+	if frame/1500 == 1:
+		frame = 0
+		spawn_player()
+	move_players()
+	check_loss()
+	check_player_food_collision()
+	slide_food()
 	turtle.update()
-	
 turtle.mainloop()
