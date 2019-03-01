@@ -50,8 +50,9 @@ players = []
 
 			
 p = 0
+a = 0
 def spawn_player():
-	global p 
+	global p,a
 	if len(players) < 5:
 		player1 = Players(100,5,75)
 		players.append(player1)
