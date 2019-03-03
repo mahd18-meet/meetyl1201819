@@ -8,7 +8,7 @@ from functions import *
 from tkinter import *
 from characters import *
 
-
+global score_count
 #higher tracer = faster characters spawning from the left
 turtle.tracer(125,1)
 
@@ -48,6 +48,11 @@ gameover=turtle.Turtle()
 gameover.shape("gameover.gif")
 gameover.hideturtle()
 
+#you win
+turtle.register_shape("okhand.gif")
+win=turtle.Turtle()
+win.shape("okhand.gif")
+win.hideturtle()
 
 #controls for the player
 UP = 0
@@ -55,7 +60,6 @@ DOWN = 1
 LEFT = 2
 RIGHT = 3
 direction = UP
-
 
 #creating the tables to place food on
 foods=[burger,pizza,sushi]
@@ -92,7 +96,6 @@ turtle.onkeypress(down, "Down")
 turtle.onkeypress(left, "Left")
 turtle.onkeypress(right, "Right")
 
-
 #making the collide function, essential for the rest of the game
 def collide(ball_a,ball_b):
 	x1=ball_a.xcor()
@@ -105,8 +108,6 @@ def collide(ball_a,ball_b):
 	if D < ball_a.r + ball_b.r:
 		return True
 
-
-
 #checking if Abed has collided with the food on the right 
 def check_food_collision():
 	for f in foods:
@@ -115,10 +116,8 @@ def check_food_collision():
 			f.showturtle()
 			#making the food follow abed whenever he picks them up
 			f.goto(abed.xcor(),abed.ycor())
-			
-				
+					
 	return True
-
 
 #checking if the food has collided with the tables and making sure they are alligned for desire_food_player collsion
 def slide_food():
@@ -133,10 +132,9 @@ def slide_food():
 
 	return True
 
-
 #biggest function, checking the collision between customer requests, the customers, and the food
 def check_food_desire_player_collision():
-	global Life,score_count
+	global Life,score_count,score
 	for a in foods:
 		for b in desires:
 			for c in players:
@@ -146,6 +144,7 @@ def check_food_desire_player_collision():
 						#hiding the food giving the impression a customer is "satisfied"
 						a.hideturtle()
 						#increases score
+						
 						score_count += 25
 						score.clear()
 						score.goto(200,450)
@@ -168,7 +167,6 @@ def check_food_desire_player_collision():
 							a.goto(650,-50)
 						else:
 							a.goto(450,290)
-
 
 					else:
 						#same as top except we subtract a point from life
@@ -194,8 +192,6 @@ def check_food_desire_player_collision():
 						elif Life == 1:
 							hearts.shape("hearts1.gif")
 
-
-
 #this funcion checks if the customers have reached too far on the table and they sacrifice a Life
 def check_if_player_reached_table():
 	global Life
@@ -217,12 +213,10 @@ def check_if_player_reached_table():
 				elif Life == 1:
 					hearts.shape("hearts1.gif")
 
-
 #listen so the keys can control Abed		
 turtle.listen()
 
 frame = 0
-
 
 #main loop to make game move
 while Life > 0:	
@@ -238,6 +232,15 @@ while Life > 0:
 	check_if_player_reached_table()
 	slide_food()
 	turtle.update()
+	if score_count//25 == 1000000:
+		abed.hideturtle()
+		hearts.hideturtle()
+		for a in players:
+			a.hideturtle()
+		for d in desires:
+			d.hideturtle()
+		turtle.bgpic("okhand.gif")
+
 #this section plays whenever you lose
 while Life == 0:
 	hearts.shape("hearts0.gif")
@@ -247,11 +250,6 @@ while Life == 0:
 		a.hideturtle()
 	for d in desires:
 		d.hideturtle()
-
-
-
-
-
 
 
 turtle.mainloop()
